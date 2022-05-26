@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using Caliburn.Micro;
+using TheManagerDesktopUserInterface.Helpers;
 using TheManagerDesktopUserInterface.ViewModels;
 
 namespace TheManagerDesktopUserInterface
@@ -16,6 +18,10 @@ namespace TheManagerDesktopUserInterface
         public BootStrapper()
         {
             Initialize();
+            ConventionManager.AddElementConvention<PasswordBox>(
+            PasswordBoxHelper.BoundPasswordProperty,
+            "Password",
+            "PasswordChanged");
         }
 
         protected override void Configure()
